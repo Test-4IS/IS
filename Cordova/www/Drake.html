@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Drake</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="format-detection" content="telephone=no" />
+<link href="jqry/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css"/>
+<link href="jc/little.css" rel="stylesheet" type="text/css" media='screen and (max-width: 640px)' />
+<link href="jc/large.css" rel="stylesheet" type="text/css" media='screen and (min-width: 641px)' />
+<script src="jqry/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="cordova.js" type="text/javascript"></script>
+<script src="jqry/jquery.flot.js"></script>
+<script src="jc/I4IScalcs.js" type="text/javascript"></script>
+<script src="jc/I4IScalcs2.js" type="text/javascript"></script>
+<script src="jqry/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<noscript>Your browser does not support JavaScript!</noscript>
+</head>
+
+<body>
+
+
+<div id="pageDrake" data-role="page">
+   	<div data-role="header" data-position="fixed" id="headerBackGrd" data-theme="a">
+        <div class="ui-grid-b" data-role="header" id="headerBackGrd" data-theme="a">
+           <div class="ui-block-a" align="left"><a href="index.html" data-role="button" data-icon="home" data-inline="true" data-mini="true" data-theme="a">Home</a></div>
+           <div class="ui-block-b" align="center"><h1 align="center" style="color:yellow">Drake Equation</h1></div>
+           <div class="ui-block-c" align="right"><a href="information.html" data-role="button" data-icon="info" data-inline="true" data-mini="true" data-theme="a">Info</a></div>
+        </div>
+    </div>
+
+  	<div data-role="content" id="drakeBackGrd">
+<div align="right"><input type="button" onclick="resetDrake()" value="Best Guess" data-theme="b" data-icon="refresh" data-inline="true" data-mini="true"/></div>
+<div class= "pageTitle" align="center">Calculate No. of Alien Civilisations</div><br/>
+
+
+<form name="Drake"
+   onclick="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)"
+   onmouseup="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)">
+
+         <div class="ui-grid-b" data-theme="a">
+           <div class="ui-block-a" align="left"><b>Stars formed in Galaxy per year R*:</b></div>
+           <div class="ui-block-b" align="center">
+              <INPUT TYPE="number" SIZE="5" MAXLENGTH="5" NAME="R" value = "1" onchange="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)"/>
+              </div>
+         </div>
+
+      <div data-role="fieldcontain" >
+        <b>% Stars that will have planets : &nbsp;</b>
+        <input name="Fp" type="range" id="Fp" max="100" min="1" value="50" onchange="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)" />
+      </div>
+
+      <div data-role="fieldcontain" >
+        <b>Planets capable of life per star : &nbsp;</b>
+        <input name="Ne" type="range" id="Ne" max="20" min="1" value="3" onchange="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)" />
+      </div>
+
+      <div data-role="fieldcontain" >
+        <b>% Planets that will develop life : &nbsp;</b>
+        <input name="Fl" type="range" id="Fl" max="100" min="1" value="100" onchange="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)" />
+      </div>
+
+      <div data-role="fieldcontain"  >
+        <b>% Will develop intelligent life : &nbsp;</b>
+        <input name="Fi" type="range" id="Fi" max="100" min="1" value="100" onchange="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)" />
+      </div>
+
+      <div data-role="fieldcontain" >
+        <b>% of above able to communicate : &nbsp;</b>
+        <input name="Fc" type="range" id="Fc" max="100" min="1" value="15" onchange="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)" />
+      </div>
+
+
+          <div class="ui-grid-a" data-theme="a">
+
+           <div class="ui-block-a" align="left"><b>Average lifespan of a civilisation L:</b><br/>1000-100,000,000 years</div>
+           <div class="ui-block-b" align="center"><INPUT TYPE="number" SIZE="10" MAXLENGTH="10" NAME="L" value = "1000000" onchange="calcDrake(Drake.R.value, Drake.Fp.value, Drake.Ne.value, Drake.Fl.value, Drake.Fi.value, Drake.Fc.value, Drake.L.value)"/></div>
+
+           <br/> <br/>
+
+           <!-- div class="ui-block-a" align="left" id="Nciv"><input type="text" id="N" name ="N" value="" readonly data-theme="e"></div>
+           <div class="ui-block-b" align="center"><b>No. of Civilisations in the Galaxy</b></div -->
+
+           <div class="ui-block-a" align="left"><input type="text" id="N1" name ="N1" value="" readonly data-theme="e"></div>
+           <div class="ui-block-b" align="center"><b>No. of Stars per Civilisations</b></div>
+
+           <!-- div class="ui-block-a" align="left"><input type="text" id="N2" name ="N2" value="" readonly data-theme="e"></div>
+           <div class="ui-block-b" align="center"><b>Average distance apart</b><br/>Light Years</div -->
+
+         </div>
+
+</form>
+
+<div class= "equation" align="center">Drake Equation
+<br/>N = R* Fp * Ne * Fl * Fi * Fc * L</div>
+
+</div>
+
+        <div data-role="footer" data-id="persistent_navbar" data-position="fixed" data-theme="b">
+           <div class="results-bar">
+           <div class="ui-grid-a">
+               <div class="ui-block-a" align="left">No. of Civilisations in our Galaxy</div>
+               <div class="ui-block-b" align="right"><canvas id="drakeCanvas" width:60px;height:20px></canvas></div>
+           </div>
+           </div>
+
+          <div  class="nav-icon-bar">
+            <div data-role="navbar" class="nav-icon-bar" data-grid="d">
+             <ul>
+                <li><a href="Rocket.html"         class="ui-btn" data-icon="rocket" data-theme="b"><br/>Rocket</a></li>
+                <!-- li><a href="SSail.html"          class="ui-btn" data-icon="sail" data-theme="b"><br/>Sail</a></li -->
+				<!-- li><a href="Drake.html"          class="ui-btn" data-icon="drake" data-theme="b"><br/>Aliens</a></li -->
+                <li><a href="CosmicDistance.html" class="ui-btn" data-icon="dist"  data-theme="b"><br/>Star</a></li>
+                <li><a href="StarTemp.html"       class="ui-btn" data-icon="temp"  data-theme="b"><br/>Temp</a></li>
+                <li><a href="graph.html"          class="ui-btn" data-icon="orbit" data-theme="b"><br/>Orbits</a></li>
+                <!-- li><a href="Blackhole.html"      class="ui-btn" data-icon="bhole" data-theme="b"><br/>B/Hole</a></li -->
+                <li><a href="Converter.html"      class="ui-btn" data-icon="conv"  data-theme="b"><br/>Conv</a></li>
+                <!-- li><a href="StarData.html"       class="ui-btn" data-icon="data"  data-theme="b"><br/>Data</a></li -->
+                <!-- li><a href="javascript://" onclick="gotoNewsLetter();" target="_blank" class="ui-btn" data-icon="news"  data-theme="b" data-ajax="false"><br/>News</a></li -->
+             </ul>
+            </div>
+        </div>
+      </div>
+</div>
+
+</body>
+</html>

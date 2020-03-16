@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>CosmicDistance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="format-detection" content="telephone=no" />
+<link href="jqry/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css"/>
+<link href="jc/little.css" rel="stylesheet" type="text/css" media='screen and (max-width: 640px)' />
+<link href="jc/large.css" rel="stylesheet" type="text/css" media='screen and (min-width: 641px)' />
+<script src="jqry/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="cordova.js" type="text/javascript"></script>
+<script src="jqry/jquery.flot.js"></script>
+<script src="jc/I4IScalcs.js" type="text/javascript"></script>
+<script src="jc/I4IScalcs2.js" type="text/javascript"></script>
+<script src="jqry/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<noscript>Your browser does not support JavaScript!</noscript>
+</head>
+
+<body>
+
+<div data-role="page" id="page">
+   	<div data-role="header" data-position="fixed" id="headerBackGrd" data-theme="a">
+        <div class="ui-grid-b" data-role="header" id="headerBackGrd" data-theme="a">
+           <div class="ui-block-a" align="left"><a href="index.html" data-role="button" data-icon="home" data-inline="true" data-mini="true" data-theme="a">Home</a></div>
+           <div class="ui-block-b" align="center"><h1 align="center" style="color:yellow">Cosmic Distance</h1></div>
+           <div class="ui-block-c" align="right"><a href="information.html" data-role="button" data-icon="info" data-inline="true" data-mini="true" data-theme="a">Info</a></div>
+        </div>
+    </div>
+
+	<div data-role="content" id="distBackGrd" >
+<div class= "pageTitle" align="center">Calculate Distance using Absolute vs Apparent Magnitude</div>
+<br/>
+<form name="Cepheids">
+<CENTER><b>The Absolute Magnitude compares stars luminosity as if they were viewed from 10 Parsec<br/></b></CENTER>
+<div class= "equation" align="center">m - M = 5 log(d/10)</div>
+
+<table width="100%" border="0" >
+  <tr>
+    <th scope="row">Apparent (m) :</th>
+    <td> <input type="number" id="Ap" name ="Ap" value="0" style="width:110px" ></td>
+  </tr>
+  <tr>
+    <th scope="row">Absolute (M) :</th>
+    <td><input type="number" id="Ab" name ="Ab" value="0"  style="width:110px" ></td>
+   </tr>
+  <tr>
+    <th scope="row">Distance  (Parsec) :</th>
+    <td><input type="text" id="D" name ="D" value="" readonly data-theme="e" style="width:110px"></td>
+  </tr>
+  <tr>
+    <th scope="row">Hubble  (m/s) :</th>
+    <td><input type="text" id="H" name ="H" value="" readonly data-theme="e" style="width:110px"></td>
+  </tr>
+  <tr>
+    <td width="110px"><input type="button" onclick="resetDist()" value="Sun" data-theme="b" data-icon="check" width="110px"></td>
+    <td width="110px"><input type="button" onclick="calcDist(Cepheids.Ab.value, Cepheids.Ap.value)" value="Calc" data-theme="b" data-icon="check" width="110px"></td>
+
+  </tr>
+</table>
+
+
+</form>
+
+
+<br><b>
+In an expanding universe, like ours, stationary celestial objects are separating at a rate give by Hubble's law. Calculation above based on 72 m per Second per KiloParsec.
+<p/>
+Cepheids have variable luminosity and this variation which can be observed from Earth allows the absolute magnitued to be calculated.
+<p/>
+Polaris A is an example at 99 Parsecs
+<br/>
+<br/>
+Faintest visible to the eye +6
+<br/>
+Faintest visible to telescopes +24
+<br/></b>
+
+<table data-role="table" id="star-Mag-table" data-mode="columntoggle" data-column-btn-text="Select Star Data To View" data-column-btn-theme="a" border="1" class="astro-compare ui-shadow table-stroke" bgcolor=white>
+<thead>
+<tr><th>Star name</th>
+<th data-priority="6">Distance (light years)</th>
+<th>Distance (Parsecs)</th>
+<th data-priority="1">Spectral type</th>
+<th>Abs mag</th>
+<th>App mag</th>
+<th data-priority="1">Luminosity</th>
+<th data-priority="2">Radius (Sun)</th>
+<th data-priority="3">Mass (Sun)</th>
+<th data-priority="4">Surface temp</th>
+<th data-priority="5">Planets</th></tr>
+</thead>
+<tbody>
+<tr><td>	Proxima Centauri	</td><td>	4.2421	</td><td>	1.300605993	</td><td>	M	</td><td>	15.48	</td><td>	11.05	</td><td>	0.0017	</td><td>	0.145	</td><td>	0.11	</td><td>	3042K	</td><td>		</td></tr>
+<tr><td>	Alpha Centauri A and B	</td><td>	4.365	</td><td>	1.3382865	</td><td>	G and K	</td><td>	4.38 and 5.71	</td><td>	-0.01 and 1.33	</td><td>	1.519 and 0.500	</td><td>	1.227 and 0.865	</td><td>	1.14 and 0.92	</td><td>	5790K and 5260K	</td><td>	1	</td></tr>
+<tr><td>	Barnards Star	</td><td>	5.963	</td><td>	1.828225063	</td><td>	M	</td><td>	13.25	</td><td>	9.54	</td><td>	0.0004	</td><td>	0.196	</td><td>	0.16	</td><td>	3134K	</td><td>		</td></tr>
+<tr><td>	Wolf 359	</td><td>	7.7825	</td><td>	2.386074384	</td><td>	M	</td><td>	16.64	</td><td>	13.53	</td><td>	0.0011	</td><td>	0.16	</td><td>	0.09	</td><td>	2800K	</td><td>		</td></tr>
+<tr><td>	Lalande 21185	</td><td>	8.2905	</td><td>	2.541824565	</td><td>	M	</td><td>	10.44	</td><td>	7.47	</td><td>	0.024	</td><td>		</td><td>	0.46	</td><td>	3000K	</td><td>		</td></tr>
+<tr><td>	Sirius (A and B)	</td><td>	8.5828	</td><td>	2.631442238	</td><td>	A and white dwarf	</td><td>	1.47 and 11.34	</td><td>	-1.43 and 8.44	</td><td>	25.4 and 0.026	</td><td>	1.711	</td><td>	1.99 and 1.00	</td><td>	9940K and 25200K	</td><td>		</td></tr>
+<tr><td>	Luyten 726-8 (A and B)	</td><td>	8.728	</td><td>	2.67595981	</td><td>	M and M	</td><td>	15.47 and 15.93	</td><td>	12.61 and 13.06	</td><td>	0.00006 and 0.00004	</td><td>	0.14 and 0.14	</td><td>	0.11 and 0.10	</td><td>	2670K and ?	</td><td>		</td></tr>
+<tr><td>	Ross 154	</td><td>	9.6813	</td><td>	2.968236676	</td><td>	M	</td><td>	13.08	</td><td>	10.44	</td><td>	0.0038	</td><td>	0.24	</td><td>	0.17	</td><td>	3340K	</td><td>		</td></tr>
+<tr><td>	Ross 248	</td><td>	10.322	</td><td>	3.164671993	</td><td>	M	</td><td>	14.79	</td><td>	12.29	</td><td>	0.0018	</td><td>	0.16	</td><td>	0.136	</td><td>	2799K	</td><td>		</td></tr>
+<tr><td>	WISE 1506+7027	</td><td>	10.521	</td><td>	3.225684368	</td><td>	T	</td><td>		</td><td>	14.15	</td><td>		</td><td>		</td><td>		</td><td>		</td><td>		</td></tr>
+<tr><td>	Epsilon Eridani	</td><td>	10.522	</td><td>	3.225990962	</td><td>	K	</td><td>	6.2	</td><td>	3.73	</td><td>	0.34	</td><td>	0.735	</td><td>	0.85	</td><td>	5084K	</td><td>	2	</td></tr>
+<tr><td>	Lacaille 9352	</td><td>	10.742	</td><td>	3.293441828	</td><td>	M	</td><td>	9.76	</td><td>	7.34	</td><td>	0.033	</td><td>	0.459	</td><td>	0.53	</td><td>	3626K	</td><td>		</td></tr>
+<tr><td>	Ross 128	</td><td>	10.919	</td><td>	3.347709116	</td><td>	M	</td><td>	13.53	</td><td>	11.16	</td><td>	0.00036	</td><td>	0.21	</td><td>	0.16	</td><td>	3180K	</td><td>		</td></tr>
+<tr><td>	WISE 0350-5658	</td><td>	11.208	</td><td>	3.436315026	</td><td>	Y	</td><td>		</td><td>	21.5	</td><td>		</td><td>		</td><td>		</td><td>		</td><td>		</td></tr>
+<tr><td>	EZ Aquarii (A, B and C)	</td><td>	11.266	</td><td>	3.454097527	</td><td>	M, M and M	</td><td>	15.33, 15.58 and 17.37	</td><td>	13.03, 13.27 and 15.07	</td><td>		</td><td>		</td><td>	0.11, 0.11 and 0.08	</td><td>	2650K and ?	</td><td>		</td></tr>
+<tr><td>	Procyon (A and B)	</td><td>	11.402	</td><td>	3.495794426	</td><td>	F and white dwarf	</td><td>	2.65 and 12.98	</td><td>	0.37 and 10.70	</td><td>	6.93 and 0.00055	</td><td>	2.048 and 0.012	</td><td>	1.57 and 0.5	</td><td>	6530K and 7740K	</td><td>		</td></tr>
+<tr><td>	61 Cygni (A and B)	</td><td>	11.403	</td><td>	3.496101021	</td><td>	K and K	</td><td>	7.6 and 8.4	</td><td>	5.2 and 6.03	</td><td>	0.153 and 0.085	</td><td>	0.665 and 0.595	</td><td>	0.70 and 0.63	</td><td>	4526K and 4077K	</td><td>		</td></tr>
+<tr><td>	Struve 2398 (A and B)	</td><td>	11.525	</td><td>	3.533505592	</td><td>	M and M	</td><td>	11.20 and 11.96	</td><td>	8.94 and 9.70	</td><td>	0.039 and 0.021	</td><td>	0.55 and 0.54	</td><td>	0.36 and 0.30	</td><td>	3680K and 3000K	</td><td>		</td></tr>
+<tr><td>	Gliese 15 (A and B)	</td><td>	11.624	</td><td>	3.563858482	</td><td>	M and M	</td><td>	10.31 and 13.30	</td><td>	8.08 and 11.06	</td><td>		</td><td>		</td><td>	0.49 and 0.16	</td><td>		</td><td>		</td></tr>
+<tr><td>	Epsilon Indi (A, Ba and Bb)	</td><td>	11.824	</td><td>	3.625177451	</td><td>	K, T and T	</td><td>	6.89	</td><td>	4.68	</td><td>	0.22	</td><td>	0.73 and 0.08	</td><td>	0.77, 0.03 and 0.03	</td><td>	4630K and ?	</td><td>		</td></tr>
+<tr><td>	DX Cancri	</td><td>	11.826	</td><td>	3.625790641	</td><td>	K, T and T	</td><td>	17.1	</td><td>	14.9	</td><td>	0.04	</td><td>	0.11	</td><td>	0.09	</td><td>	2840K	</td><td>		</td></tr>
+<tr><td>	Tau Ceti	</td><td>	11.887	</td><td>	3.644492926	</td><td>	G and K	</td><td>	5.68	</td><td>	3.49	</td><td>	0.52	</td><td>	0.79	</td><td>	0.92	</td><td>	5344K	</td><td>	5	</td></tr>
+<tr><td>	GJ 1061	</td><td>	11.991	</td><td>	3.67637879	</td><td>	M	</td><td>	15.26	</td><td>	13.09	</td><td>	0.001	</td><td>		</td><td>	0.11	</td><td>		</td><td>		</td></tr>
+<tr><td>	YZ Ceti	</td><td>	12.132	</td><td>	3.719608663	</td><td>	M	</td><td>	14.25	</td><td>	12.1	</td><td>		</td><td>		</td><td>	0.13	</td><td>		</td><td>		</td></tr>
+<tr><td>	Luytens Star	</td><td>	12.366	</td><td>	3.791351857	</td><td>	M	</td><td>	11.98	</td><td>	9.85	</td><td>		</td><td>	0.35	</td><td>	0.26	</td><td>	3150K	</td><td>		</td></tr>
+<tr><td>	Teegardens Star	</td><td>	12.514	</td><td>	3.836727894	</td><td>	M	</td><td>	17.22	</td><td>	15.14	</td><td>		</td><td>		</td><td>	0.08	</td><td>		</td><td>		</td></tr>
+<tr><td>	SCR 1845-6357 (A and B)	</td><td>	12.571	</td><td>	3.8542038	</td><td>	M and M	</td><td>		</td><td>	17.4	</td><td>	0.0004	</td><td>	0.096	</td><td>	0.07	</td><td>		</td><td>		</td></tr>
+<tr><td>	Kapteyns Star	</td><td>	12.777	</td><td>	3.917362339	</td><td>	M	</td><td>	10.89	</td><td>	8.85	</td><td>		</td><td>	0.291	</td><td>	0.39	</td><td>	3570K 	</td><td>		</td></tr>
+<tr><td>	AX Microscopii	</td><td>	12.87	</td><td>	3.945875659	</td><td>	M	</td><td>	8.69	</td><td>	6.67	</td><td>		</td><td>	0.51	</td><td>	0.6	</td><td>	3800K	</td><td>		</td></tr>
+<tr><td>	WISE 9535-7500	</td><td>	13.046	</td><td>	3.999836352	</td><td>	Y	</td><td>		</td><td>		</td><td>		</td><td>		</td><td>		</td><td>		</td><td>		</td></tr>
+<tr><td>	Kruger 60 (A and B)	</td><td>	13.149	</td><td>	4.031415621	</td><td>	M and M	</td><td>	11.76 and 13.38	</td><td>	9.79 and 11.41	</td><td>	0.010 and 0.0034	</td><td>	0.35 and 0.24	</td><td>	0.28 and 0.16	</td><td>	3180k and 2890K	</td><td>		</td></tr>
+<tr><td>	DEN 1048-3956	</td><td>	13.167	</td><td>	4.036934328	</td><td>	M	</td><td>	19.37	</td><td>	17.4	</td><td>	0.00000356	</td><td>		</td><td>	0.07	</td><td>		</td><td>		</td></tr>
+<tr><td>	UGPS 0722-05	</td><td>	13.259	</td><td>	4.065141054	</td><td>	T	</td><td>		</td><td>	16.5	</td><td>	0.00000009	</td><td>	0.12	</td><td>	0.0005 and 0.038	</td><td>	480-560K	</td><td>		</td></tr>
+<tr><td>	Ross 614 (A and B)	</td><td>	13.349	</td><td>	4.09273459	</td><td>	M and M	</td><td>	13.12 and 16.20	</td><td>	11.18 and 14.26	</td><td>		</td><td>		</td><td>	0.17 and 0.10	</td><td>		</td><td>		</td></tr>
+<tr><td>	Wolf 1061	</td><td>	13.82	</td><td>	4.237140762	</td><td>	M	</td><td>	11.95	</td><td>	10.1	</td><td>		</td><td>		</td><td>	0.26	</td><td>	3380K	</td><td>		</td></tr>
+<tr><td>	WISE 0410+1502	</td><td>	13.998	</td><td>	4.291714645	</td><td>	Y	</td><td>		</td><td>	19.05	</td><td>		</td><td>	1.22 Jupiter radii	</td><td>	3-9 jupiter masses	</td><td>	450K	</td><td>		</td></tr>
+<tr><td>	Van Maanen’s Star	</td><td>	14.066	</td><td>	4.312563094	</td><td>	white dwarf	</td><td>	14.23	</td><td>	12.4	</td><td>		</td><td>	0.013	</td><td>	0.5	</td><td>	6220K	</td><td>		</td></tr>
+<tr><td>	Gliese 1	</td><td>	14.231	</td><td>	4.363151244	</td><td>	M	</td><td>	10.35	</td><td>	8.54	</td><td>		</td><td>	0.47	</td><td>	0.48	</td><td>	3380K	</td><td>		</td></tr>
+<tr><td>	Wolf 424 (A and B)	</td><td>	14.312	</td><td>	4.387985426	</td><td>	M and M	</td><td>	15.03 and 15.02	</td><td>	13.25 and 13.24	</td><td>		</td><td>		</td><td>	0.12 and 0.12	</td><td>		</td><td>		</td></tr>
+<tr><td>	TZ Arietis	</td><td>	14.509	</td><td>	4.448384611	</td><td>	M	</td><td>	14.07	</td><td>	12.31	</td><td>	0.00135	</td><td>		</td><td>	0.14	</td><td>		</td><td>		</td></tr>
+<tr><td>	Gliese 687	</td><td>	14.793	</td><td>	4.535457547	</td><td>	M	</td><td>	10.89	</td><td>	9.17	</td><td>		</td><td>	0.49	</td><td>	0.39	</td><td>	3095K	</td><td>		</td></tr>
+<tr><td>	LHS 292	</td><td>	14.805	</td><td>	4.539136685	</td><td>	M	</td><td>	17.45	</td><td>	15.73	</td><td>	0.00069	</td><td>	0.11	</td><td>	0.08	</td><td>	2650K	</td><td>		</td></tr>
+<tr><td>	Gliese 674	</td><td>	14.809	</td><td>	4.540363064	</td><td>	M	</td><td>	11.06	</td><td>	9.38	</td><td>	0.0032	</td><td>	0.42	</td><td>	0.35	</td><td>	3600K	</td><td>	1	</td></tr>
+<tr><td>	GJ 1245 (A, B and C)	</td><td>	14.812	</td><td>	4.541282849	</td><td>	M, M and M	</td><td>	11.08	</td><td>	9.37	</td><td>	0.000084 and 0.000048	</td><td>		</td><td>	0.36	</td><td>		</td><td>		</td></tr>
+<tr><td>	Gliese 440	</td><td>	15.06	</td><td>	4.61731837	</td><td>	white dwarf	</td><td>	13.17	</td><td>	11.5	</td><td>	0.0005	</td><td>		</td><td>	0.5	</td><td>	8500K	</td><td>		</td></tr>
+<tr><td>	Gliese 581	</td><td>	20.3	</td><td>	6.22387536	</td><td>	M	</td><td>	11.56	</td><td>	10.57	</td><td>	0.013	</td><td>	0.29	</td><td>	0.3	</td><td>	3480K	</td><td>	4–6	</td></tr>
+<tr><td>	Gliese 667 (A, B and C)	</td><td>	22	</td><td>	6.745086597	</td><td>	K, K and M	</td><td>	7.07, 8.02 and 11.03	</td><td>	5.91, 7.20, and 10.20 	</td><td>	0.0137	</td><td>	0.76, 0.70 and 0.42	</td><td>	0.73,  0.69 and 0.31	</td><td>	3700K	</td><td>	2–5	</td></tr>
+<tr><td>	HD 85512	</td><td>	36	</td><td>	11.03741443	</td><td>	K	</td><td>	7.43	</td><td>	7.66	</td><td>	0.126	</td><td>	0.53	</td><td>	0.69	</td><td>	4715K	</td><td>	1	</td></tr>
+<tr><td>	HD 40307	</td><td>	42	</td><td>	12.8769835	</td><td>	K	</td><td>	6.63	</td><td>	7.17	</td><td>		</td><td>	0.72	</td><td>	0.75	</td><td>	4977K	</td><td>	6	</td></tr>
+<tr><td>	Gliese 163	</td><td>	49	</td><td>	15.02314742	</td><td>	M	</td><td>	10.9	</td><td>	11.8	</td><td>		</td><td>		</td><td>		</td><td>		</td><td>	2	</td></tr>
+<tr><td>	Kepler 22	</td><td>	620	</td><td>	190.0888041	</td><td>	G	</td><td>		</td><td>	11.66	</td><td>	0.79	</td><td>	0.97	</td><td>	0.97	</td><td>	5518K	</td><td>	1	</td></tr>
+</tbody>
+</table>
+
+	</div>
+
+        <div data-role="footer" class="nav-icon-bar" data-id="persistent_navbar" data-position="fixed">
+            <div data-role="navbar" class="nav-icon-bar" data-grid="d">
+             <ul>
+                <li><a href="Rocket.html"         class="ui-btn" data-icon="rocket" data-theme="b"><br/>Rocket</a></li>
+                <!-- li><a href="SSail.html"          class="ui-btn" data-icon="sail" data-theme="b"><br/>Sail</a></li -->
+				<li><a href="Drake.html"          class="ui-btn" data-icon="drake" data-theme="b"><br/>Aliens</a></li>
+                <!-- li><a href="CosmicDistance.html" class="ui-btn" data-icon="dist"  data-theme="b"><br/>Star</a></li -->
+                <li><a href="StarTemp.html"       class="ui-btn" data-icon="temp"  data-theme="b"><br/>Temp</a></li>
+                <li><a href="graph.html"          class="ui-btn" data-icon="orbit" data-theme="b"><br/>Orbits</a></li>
+                <!-- li><a href="Blackhole.html"      class="ui-btn" data-icon="bhole" data-theme="b"><br/>B/Hole</a></li -->
+                <li><a href="Converter.html"      class="ui-btn" data-icon="conv"  data-theme="b"><br/>Conv</a></li>
+                <!-- li><a href="StarData.html"       class="ui-btn" data-icon="data"  data-theme="b"><br/>Data</a></li -->
+                <!-- li><a href="javascript://" onclick="gotoNewsLetter();" target="_blank" class="ui-btn" data-icon="news"  data-theme="b" data-ajax="false"><br/>News</a></li -->
+             </ul>
+            </div>
+        </div>
+
+</div>
+
+</body>
+</html>

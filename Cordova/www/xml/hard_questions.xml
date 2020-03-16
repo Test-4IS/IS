@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questions>
+    <question>
+        <num>1</num>
+        <ques>How much does a 100kg person weigh on Mars</ques>
+        <ans1>37.7 Kg</ans1>
+        <ans2>142 Kg</ans2>
+        <ans3>56 Kg</ans3>
+        <ans>1</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>2</num>
+        <ques>How much does a 100kg person weigh on the moon</ques>
+        <ans1>10.2 Kg</ans1>
+        <ans2>16.6 Kg</ans2>
+        <ans3>33.3 Kg</ans3>
+        <ans>2</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>3</num>
+        <ques>How much does a 100kg person weigh on Jupiter</ques>
+        <ans1>236.6 Kg</ans1>
+        <ans2>522.4 Kg</ans2>
+        <ans3>111.7 Kg</ans3>
+        <ans>11</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>4</num>
+        <ques>How much does a 100kg person weigh on Pluto</ques>
+        <ans1>1.7 Kg</ans1>
+        <ans2>118.3 Kg</ans2>
+        <ans3>6.7 Kg</ans3>
+        <ans>3</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>5</num>
+        <ques>How much does a 100kg person weigh on the Sun</ques>
+        <ans1>5200.8 Kg</ans1>
+        <ans2>242.7 Kg</ans2>
+        <ans3>2707.2 Kg</ans3>
+        <ans>3</ans>        
+        <elink></elink>  
+    </question>       
+      <question>
+        <num>6</num>
+        <ques>How much does a 100kg person weigh on a Neutron Star</ques>
+        <ans1>14 e+12 Kg</ans1>
+        <ans2>14 e+14 Kg</ans2>
+        <ans3>14 e+22 Kg</ans3>
+        <ans>1</ans>        
+        <elink></elink>  
+    </question>
+     <question>
+        <num>7</num>
+        <ques>Which is further from the Sun</ques>
+        <ans1>The Oort Cloud</ans1>
+        <ans2>The Kuiper belt</ans2>
+        <ans3>The asteroid belt</ans3>
+        <ans>1</ans>
+        <elink></elink>         
+    </question>
+    <question>
+        <num>8</num>
+        <ques>Is Pluto in</ques>
+        <ans1>The Oort Cloud</ans1>
+        <ans2>The Kuiper belt</ans2>
+        <ans3>The asteroid belt</ans3>
+        <ans>2</ans>
+        <elink></elink>        
+    </question> 
+     <question>
+        <num>9</num>
+        <ques>What is the escape velocity from Mars</ques>
+        <ans1>617.5 Km/s</ans1>
+        <ans2>5 Km/sg</ans2>
+        <ans3>59.5 km/s</ans3>
+        <ans>2</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>10</num>
+		<ques>What is the escape velocity from Moon</ques>
+        <ans1>617.5 Km/s</ans1>
+        <ans2>2.4 Km/sg</ans2>
+        <ans3>59.5 km/s</ans3>
+        <ans>2</ans>  
+        <elink></elink>  
+    </question>
+	<question>
+        <num>11</num>
+        <ques>What is the escape velocity from the Sun</ques>
+        <ans1>617.5 Km/s</ans1>
+        <ans2>5 Km/sg</ans2>
+        <ans3>59.5 km/s</ans3>
+        <ans>1</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>12</num>
+		<ques>What is the escape velocity from Jupiter</ques>
+        <ans1>617.5 Km/s</ans1>
+        <ans2>2.4 Km/sg</ans2>
+        <ans3>59.5 km/s</ans3>
+        <ans>3</ans>  
+        <elink></elink>  
+    </question>	
+     <question>
+        <num>13</num>
+        <ques>Who invented the interstellar Ramjet></ques>
+        <ans1>A Einstein</ans1>
+        <ans2>K Thorne</ans2>
+        <ans3>R W Bussard</ans3>
+        <ans>3</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>14</num>
+        <ques>When was the interstellar Ramjet purposed?</ques>
+        <ans1>1960</ans1>
+        <ans2>1980</ans2>
+        <ans3>2000</ans3>
+        <ans>1</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>15</num>
+        <ques>NASA intersteallar research program is?</ques>
+        <ans1>Breakthrough Warp Drives</ans1>
+        <ans2>Breakthrough Propulsion Drives</ans2>
+        <ans3>Breakthrough Propulsion Physics</ans3>
+        <ans>3</ans>        
+        <elink>http://www.grc.nasa.gov/WWW/bpp/</elink>  
+    </question>       
+    <question>
+        <num>16</num>
+        <ques>The British Interplanetary Society was founded in?</ques>
+        <ans1>1880</ans1>
+        <ans2>1930</ans2>
+        <ans3>1945</ans3>
+        <ans>2</ans>        
+        <elink>http://www.bis-space.com/</elink>  
+    </question>   
+    	
+</questions>

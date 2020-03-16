@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot>
+<Events>
+<No>1</No>
+<EventDesc>Project Dragonfly Application</EventDesc>
+<EventText>Please send us an email to info@i4is.org with your team's affiliation and team background (areas of study, undergraduate, graduate, post-graduate) for an initial assessment of your application.</EventText>
+<EventDate>2014-09-30T00:00:00</EventDate>
+<Location>London</Location>
+<Contact>Somebody</Contact>
+<Cost>0</Cost>
+</Events>
+<Events>
+<No>2</No>
+<EventDesc>Wormhole symposium</EventDesc>
+<EventText>This is the science of wormholes, short-cut tunnels through the fabric of space-time that contradict of our common sense notions of space and time. If wormholes were ever possible, it would instantly make interstellar transport a realisable possibility.</EventText>
+<EventDate>2014-11-24T00:00:00</EventDate>
+<Location>London</Location>
+<PostCode>SW8 1SZ</PostCode>
+<Contact>Somebody</Contact>
+<Cost>0</Cost>
+</Events>
+<Events>
+<No>3</No>
+<EventDesc>Tennessee Valley Interstellar Workshop (TVIW)</EventDesc>
+<EventDate>2014-11-24T00:00:00</EventDate>
+<Location>Tennessee</Location>
+<PostCode>37830, USA</PostCode>
+<Contact>Somebody</Contact>
+<Cost>0</Cost>
+</Events>
+<Events>
+<No>4</No>
+<EventDesc>Project Dragonfly Competition</EventDesc>
+<EventText>Project Dragonfly is a feasibility study for an interstellar mission, conducted by small, distributed spacecraft, propelled primarily by laser sails</EventText>
+<EventDate>2015-03-31T00:00:00</EventDate>
+<Location>London</Location>
+<Contact>Somebody</Contact>
+<Cost>0</Cost>
+</Events>
+</dataroot>
+
+
+
+

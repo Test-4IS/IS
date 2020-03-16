@@ -1,0 +1,437 @@
+@charset "utf-8";
+/* CSS iPad etc */
+
+* {
+    font-family: Futura;
+  }
+
+.pageTitle {
+  font-weight: bold;
+  text-align: center;
+  font-size: 35px;
+}
+
+.pageTitleWhite {
+  color:white;
+  font-weight:bold;
+  width: 100%;
+  text-align: center;
+  font-size:35px;
+}
+
+.equation {
+  margin:50px;
+  border-width:4px;
+  border-color:black;
+  border-style: solid double;
+  background-color: lightblue;
+  font-weight:bold;
+  text-align: center;
+  font-size:35px;
+}
+
+.ui-icon-I4IS:after {
+	background-image: url(images/I4ISicon.png);
+	background-position:center;
+    background-repeat: no-repeat;
+	width: 16px;
+    height: 16px;
+}
+
+.nav-icon-bar .ui-btn .ui-btn-inner {
+    padding-top: 40px !important;
+}
+
+.opc {
+    opacity: 0.8;
+}
+
+.nav-icon-bar .ui-btn .ui-icon {
+    width: 45px!important;
+    height: 35px!important;
+    margin-left: -24px !important;
+    box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius: none !important;
+    border-radius: none !important;
+	opacity: 1.0;
+	}
+
+.results-bar {
+    height: 80px!important;
+    margin-left: 5px !important;
+}
+
+
+#flotcontainer {
+  width: 280px;
+  height: 280px;
+  text-align: left;
+  opacity: 0.9;
+}
+
+
+#headerBackGrd {
+    background-image: url(images/mainimg.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerRocket {
+    background-image: url(images/hdrRocket.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerSail {
+    background-image: url(images/hdrSail.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerAlien {
+    background-image: url(images/hdrAlien.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerDistance {
+    background-image: url(images/hdrDistance.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerTemp {
+    background-image: url(images/hdrTemp.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerOrbit {
+    background-image: url(images/hdrOrbit.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerConv {
+    background-image: url(images/hdrConv.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerBlack {
+    background-image: url(images/hdrBlack.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerQuiz {
+    background-image: url(images/hdrQuiz.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerData {
+    background-image: url(images/hdrData.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerInfo {
+    background-image: url(images/hdrInfo.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#indexBackGrd {
+    background-image: url(images/AM_Night_Sky_Large.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+	
+}
+
+#eventBackGrd {
+    background-image: url(images/AM_Night_Sky_Large.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+	
+}
+
+#vidsBackGrd {
+    background-image: url(images/AM_Night_Sky_Large.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+	
+}
+
+/* #rocket  .ui-nosvg  */
+.ui-icon-rocket:after {
+   background: url("alex/Rocket.png") !important;
+   margin-left: -20px !important;
+   width: 40px;
+   height: 40px;
+   opacity: 1.0;
+}
+
+#rocketBackGrd {
+    background-color: DeepSkyBlue;
+  /*  background-image: url(images/AM_Blue_Sky_Large.jpg);
+    background-attachment: fixed; */
+}
+
+
+/* #drake .ui-icon { */
+.ui-icon-drake:after {
+	background-image: url("alex/Alien.png");
+	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+}
+
+#drakeBackGrd {
+    background-color: DeepSkyBlue;
+  /*  background-image: url(images/AM_Blue_Sky_Large.jpg);
+    background-attachment: fixed; */
+}
+
+/* #conv .ui-icon { */
+.ui-icon-conv:after {
+	background-image: url(alex/Converter.png);
+	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+}
+
+#convBackGrd {
+    background-color: DeepSkyBlue;
+  /*  background-image: url(images/AM_Blue_Sky_Large.jpg);
+    background-attachment: fixed; */
+}
+
+/* #dist .ui-icon { */
+.ui-icon-dist:after {
+    background-image: url(alex/Distance.png);
+	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+}
+
+#distBackGrd {
+    background-color: DeepSkyBlue;
+  /*  background-image: url(images/AM_Blue_Sky_Large.jpg);
+    background-attachment: fixed; */
+}
+
+/* #temp .ui-icon { */
+.ui-icon-temp:after {
+    background-image: url(alex/Temperature.png);
+ 	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+}
+
+#tempBackGrd {
+    background-color: DeepSkyBlue;
+  /*  background-image: url(images/AM_Blue_Sky_Large.jpg);
+    background-attachment: fixed; */
+}
+
+/* #data .ui-icon { */
+.ui-icon-data:after {
+	background-image: url(alex/Data.png);
+	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+}
+
+#dataBackGrd {
+    background-image: url(images/AM_Night_Sky_Large.jpg);
+    background-attachment: fixed;
+}
+
+/* #orbit .ui-icon { */
+.ui-icon-orbit:after {
+    background-image: url(alex/Orbit.png);
+ 	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+}
+
+#orbitBackGrd {
+    background-image: url(images/AM_Night_Sky_Large.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+/* #sail .ui-icon { */
+.ui-icon-sail:after {
+    background-image: url(alex/SolarSail.png);
+ 	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+}
+
+#sailBackGrd {
+    background-color: DeepSkyBlue;
+    /* background-image: url(images/AM_Blue_Sky_Large.jpg); */
+    background-attachment: fixed;
+}
+
+/* #bhole .ui-icon { */
+.ui-icon-bhole:after {
+	background-image: url(alex/BlackHole.png);
+ 	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+	}
+
+#bholeBackGrd {
+    background-color: DeepSkyBlue;
+    /* background-image: url(images/AM_Blue_Sky_Large.jpg); */
+    background-attachment: fixed;
+}
+
+/* #quiz .ui-icon { */
+.ui-icon-quiz:after {
+    background-image: url(alex/Quiz.png);
+/*	background-position:left;
+    background-repeat: no-repeat; */
+	margin-left: -20px !important;
+	background-size: 40px 40px;
+	width: 40px;
+    height: 40px; 
+}
+
+#quizBackGrd {
+    background-color: DeepSkyBlue;
+    /* background-image: url(images/AM_Blue_Sky_Large.jpg); */
+    background-attachment: fixed;
+}
+
+#eventBackGrd {
+    background-color: DeepSkyBlue;
+    /* background-image: url(images/AM_Blue_Sky_Large.jpg); */
+    background-attachment: fixed;
+}
+
+#vidsBackGrd {
+    background-color: DeepSkyBlue;
+    padding: 5;
+    position : absolute !important;
+    top : 70px !important; 
+    right : 0;
+    bottom : 40px !important; 
+    left : 0 !important;    
+}
+
+
+/* #bVid .ui-icon { */
+.ui-icon-Vid:after {
+	background-image: url(alex/Videos.png);
+ 	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+	}
+	
+
+/* #bEvent .ui-icon { */
+.ui-icon-Event:after {
+	background-image: url(alex/Events.png);
+ 	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+	}	
+
+
+/* #news .ui-icon { */
+.ui-icon-news:after {
+    background-image: url(adrian/Princip46.png);
+	background-position:center;
+    background-repeat: no-repeat;
+	margin-left: -20px !important;
+	width: 40px;
+    height: 40px;
+}
+
+.ui-icon-news2:after {
+    background-image: url(adrian/Princip20.png);
+	background-position:center;     
+    background-repeat: no-repeat;
+	margin-left: -5px !important;	
+    width: 40px;
+    height: 20px;
+}
+
+
+  #custom-tweet-button a {
+    display: block;
+    padding: 2px 5px 2px 20px;
+    background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
+    border: 1px solid #ccc;
+  }
+
+  #custom-tweet-button2 a {
+	display: block;
+	padding: 2px 10px 2px 40px;
+	background: url("images/twitterblue.png") 1px center no-repeat;
+	/* border: 1px solid #ccc; */
+	  }
+
+.numb {
+	/* style="width:90px" */
+	width: 90px;
+}
+
+.is4sGraph {
+	width: 280px;
+	height: 280px;
+}
+
+ #mapBox {
+    padding: 0;
+    position : absolute !important;
+    top : 70px !important; 
+    right : 0;
+    bottom : 40px !important; 
+    left : 0 !important;    
+}
+	  
+.videoSize { 
+  width: 444px;
+  height: 328px;
+  border-style:solid;
+  border-width:medium;
+}

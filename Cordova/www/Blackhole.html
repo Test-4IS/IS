@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Blackhole</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="format-detection" content="telephone=no" />
+<link href="jqry/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css"/>
+<link href="jc/little.css" rel="stylesheet" type="text/css" media='screen and (max-width: 640px)' />
+<link href="jc/large.css" rel="stylesheet" type="text/css" media='screen and (min-width: 641px)' />
+<script src="jqry/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="cordova.js" type="text/javascript"></script>
+<script src="jqry/jquery.flot.js"></script>
+<script src="jc/I4IScalcs.js" type="text/javascript"></script>
+<script src="jc/I4IScalcs2.js" type="text/javascript"></script>
+<script src="jqry/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<noscript>Your browser does not support JavaScript!</noscript>
+</head>
+
+<body>
+
+<div id="page" data-role="page">
+   	<div data-role="header" data-position="fixed" id="headerBackGrd" data-theme="a">
+        <div class="ui-grid-b" data-role="header" id="headerBackGrd" data-theme="a">
+           <div class="ui-block-a" align="left"><a href="index.html" data-role="button" data-icon="home" data-inline="true" data-mini="true" data-theme="a">Home</a></div>
+           <div class="ui-block-b" align="center"><h1 align="center" style="color:yellow">Blackhole Calculations</h1></div>
+           <div class="ui-block-c" align="right"><a href="information.html" data-role="button" data-icon="info" data-inline="true" data-mini="true" data-theme="a">Info</a></div>
+        </div>
+    </div>
+	<!-- div data-role="header" data-position="fixed" data-theme="b">
+        <a href="index.html" data-icon="home">Home</a>
+		<h1>Blackhole Calc</h1>
+        <a href="information.html"   data-icon="info"></a>
+	</div -->
+
+<div data-role="content" id="bholeBackGrd">
+<form name="swartz">
+<div class= "pageTitle" align="center">Swartzchild Radius<br/>Blackhole Entropy</div>
+  <br/><div class= "equation" align="center">Radius = 2 * Mass * G / Speed of Light Squared</div>
+  <div align="center"><b>Radius a given mass would have to be compacted into to become a blackhole.</b></div>
+  <br><div class= "equation" align="center">Entropy = Area / ( 4 * Planck Length)</div>
+  <div align="center"><b>As a blackhole feeds up goes its Entropy.<br/>
+  Microscopically/Statistically this is probability of given arrange of system<br>
+  Macroscopically/Thermodynamically this is a ratio of heat to temperature J/K</b></div>
+  <br/><div align="center"><b>Select Mass:</b>
+    <select name="Star" data-theme="b">
+      <option value="5.972e24">Earth (5.972e24 kg)</option>
+      <option value="1.989e30">Sun (1.989e30 kg)</option>
+      <option value="7.956e+36">Sagittarius A* - B.Hole (7.956e+36 kg)</option>
+    </select>
+
+</div>
+
+			<br/>
+
+<table width="100%" border="0">
+  <tr>
+    <td><b>Radius:</b><br/>( Km )</td>
+    <td> <input type="text" id="R" value="" SIZE="10" readonly data-theme="e" ></td>
+  </tr>
+  <tr>
+  <td><b>Entropy:</b></td>
+    <td><input type="text" id="E" value="" SIZE="10" readonly data-theme="e"></td>
+  </tr>
+  <tr>
+    <td scope="row"><input type="button" onclick="swartzCalc(swartz.Star.value);" value="Calculate" data-theme="b" data-icon="check"></td>
+    <td><input type="reset" value="Reset" data-theme="b" data-icon="refresh"></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</form>
+
+<div align="center"><b>
+<u>Second law of thermodynamics and the arrow of time.</u><br/>
+Time moves in the direction of increased disorder: cups break.<br/>
+For any closed system entropy increase: You have to destroy something to make a new cup!
+</b></div>
+
+<br/>
+
+<h4 align="center" style="color:white;">Black Holes</h4>
+<table data-role="table" id="bh-table" data-mode="columntoggle" data-column-btn-text="Select Black Hole Data To View" data-column-btn-theme="a" border="1" class="black-holes ui-shadow table-stroke" bgcolor=white>
+<thead>
+<tr><th>Name</th>
+<th data-priority="1">Distance (ly)</th>
+<th data-priority="2">Mass (solar masses)</th>
+
+</thead>
+<tbody>
+<tr><td> V404 Cygni </td><td> 7,800 </td><td> 12 </td></tr>
+<tr><td> Cygnus X-1 </td><td> 6,070 </td><td> 14.8 </td></tr>
+<tr><td> HLX-1 </td><td> 310 million </td><td> 500 </td></tr>
+<tr><td> Sagittarius A* </td><td> 26,000 </td><td> 4.3 million </td></tr>
+<tr><td> M31 black hole </td><td> 2.5 million </td><td> 110 to 230 million </td></tr>
+<tr><td> Virgo A (M87 black hole) </td><td> 53.5 million </td><td> 6.6 billion </td></tr>
+<tr><td> NGC 4889 black hole </td><td> 336 million </td><td> 21 billion </td></tr>
+</tbody>
+</table>
+
+</div>
+        <div data-role="footer" class="nav-icon-bar" data-id="persistent_navbar" data-position="fixed">
+            <div data-role="navbar" class="nav-icon-bar" data-grid="d">
+             <ul>
+                <!-- li><a href="Rocket.html"         class="ui-btn" data-icon="rocket" data-theme="b"><br/>Rocket</a></li -->
+                <!-- li><a href="SSail.html"          class="ui-btn" data-icon="sail" data-theme="b"><br/>Sail</a></li -->
+				<li><a href="Drake.html"          class="ui-btn" data-icon="drake" data-theme="b"><br/>Aliens</a></li>
+                <li><a href="CosmicDistance.html" class="ui-btn" data-icon="dist"  data-theme="b"><br/>Star</a></li>
+                <li><a href="StarTemp.html"       class="ui-btn" data-icon="temp"  data-theme="b"><br/>Temp</a></li>
+                <li><a href="graph.html"          class="ui-btn" data-icon="orbit" data-theme="b"><br/>Orbits</a></li>
+                <!-- li><a href="Blackhole.html"      class="ui-btn" data-icon="bhole" data-theme="b"><br/>B/Hole</a></li -->
+                <li><a href="Converter.html"      class="ui-btn" data-icon="conv"  data-theme="b"><br/>Conv</a></li>
+                <!-- li><a href="StarData.html"       class="ui-btn" data-icon="data"  data-theme="b"><br/>Data</a></li -->
+                <!-- li><a href="javascript://" onclick="gotoNewsLetter();" target="_blank" class="ui-btn" data-icon="news"  data-theme="b" data-ajax="false"><br/>News</a></li -->
+             </ul>
+            </div>
+        </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Rocket</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<link href="jqry/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css"/>
+<link href="jc/little.css" rel="stylesheet" type="text/css" media='screen and (max-width: 640px)' />
+<link href="jc/large.css" rel="stylesheet" type="text/css" media='screen and (min-width: 641px)' />
+<script src="jqry/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="cordova.js" type="text/javascript"></script>
+<script src="cordova_plugins.js" type="text/javascript"></script>
+<script src="jqry/jquery.flot.js"></script>
+<script src="jc/I4IScalcs.js" type="text/javascript"></script>
+<script src="jc/I4IScalcs2.js" type="text/javascript"></script>
+<script src="jqry/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<noscript>Your browser does not support JavaScript!</noscript>
+</head>
+
+<body>
+
+<div id="page" data-role="page">
+   	<div data-role="header" data-position="fixed" id="headerBackGrd" data-theme="b">
+        <div class="ui-grid-b" data-role="header" id="headerBackGrd" data-theme="b">
+           <div class="ui-block-a" align="left"><a href="index.html" data-role="button" data-icon="home" data-inline="true" data-mini="true" data-theme="a">Home</a></div>
+           <div class="ui-block-b" align="center"><h1 align="center" style="color:yellow">Rocket Calc</h1></div>
+           <div class="ui-block-c" align="right"><a href="information.html" data-role="button" data-icon="info" data-inline="true" data-mini="true" data-theme="a">Info</a></div>
+        </div>
+    </div>
+
+<div data-role="content" id="rocketBackGrd">
+<form name="vxt">
+<div class= "pageTitle" align="center">Simple linear velocity equation</div>
+  <br/><div class= "equation" align="center">Vel = Dist / Time </div>
+  <br/><div align="center"><b>Select Star to visit:</b>
+    <select name="Star" data-theme="b">
+      <option value="4.3">Centauri A/B (4.3 ly)</option>
+      <option value="5.9">Barnard’s Star (5.9 ly)</option>
+      <option value="10.7">Epsilon Eridani (10.7 ly)</option>
+      <option value="11.9">Tau Ceti (11.9 ly)</option>
+      <option value="100000">Far side of Milkyway(100kly)</option>
+    </select>
+
+</div>
+<table width="100%" border="0">
+  <tr>
+    <td><b>Travel Time:</b><br/>( years )</td>
+    <td><INPUT NAME="T" TYPE="number"/></td>
+   </tr>
+  <tr>
+    <td><b>Velocity:</b><br/>( * speed of light )</td>
+    <td><input type="text" id="V" value="" SIZE="10" readonly data-theme="e"></td>
+  </tr>
+  <tr>
+    <td><b>Time Dilation:</b><br/>( Space/Earth Time )</td>
+    <td> <input type="text" id="tm" value="" SIZE="10" readonly data-theme="e" ></td>
+  </tr>
+  <tr>
+    <th scope="row"><input type="button" onclick="calcVST(vxt.T.value, vxt.Star.value)" value="Calculate" data-theme="b" data-icon="check"></th>
+    <td><input type="reset" value="Reset" data-theme="b" data-icon="refresh"></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</form>
+
+
+<form name="ire">
+<div class= "pageTitle" align="center">Ideal rocket equation</div> <br>
+<div class= "equation" align="center">V = Vex * Ln( mo / mf )</div>
+    <div align="right">
+      <!-- input type="button" onClick="parent.location='http://www.bis-space.com/2013/01/02/8282/new-project-daedalus-model'" value="BIS: Daedalus" data-icon="info" data-inline="true" data-mini="true" -->
+      <input type="button" onClick="gotoDaedalus()" value="BIS: Daedalus" data-icon="info" data-inline="true" data-mini="true">
+    </div>
+<br/><div align="center"><b>Select Rocket:</b>
+  <select name="Rocket" data-theme="b">
+    <option value="10000">Daedalus (10,000 km/s)</option>
+    <option value="500">Advanced Ion Engine (500 km/s)</option>
+    <option value="1000">Nuclear Thermal Rocket (1,000 km/s)</option>
+    <option value="5000">Fission Fragment Rocket (5,000 km/s)</option>
+    <option value="10000">Fussion Engine (10,000 km/s)</option>
+    <option value="5">Chemical based (5 km/s)</option>
+    <option value="12.5">DeltaV Saturn V (12.5 km/s)</option>
+  </select>
+</div>
+<table width="100%" border="0">
+  <tr>
+    <td><b>Initial mass:</b></br>(Tons)</td>
+    <td> <INPUT TYPE="number" SIZE="10" MAXLENGTH="10" NAME="MO" min="1" max="5" value="50000" style></td>
+  </tr>
+  <tr>
+    <td><b>Final mass:</b></br>(Tons)</td>
+    <td><INPUT TYPE="number" SIZE="10" MAXLENGTH="10" NAME="MF" value="1000"/></td>
+  </tr>
+  <tr>
+    <td><b>Velocity:</b></br>(km/s)</td>
+    <td><input type="text" SIZE="10" id="V" value="" readonly data-theme="e"></td>
+  </tr>
+  <tr>
+    <td><b>Velocity:</b></br>( * speed of light)</td>
+    <td><input type="text" SIZE="10" id="c" value="" readonly data-theme="e"></td>
+   </tr>
+  <tr>
+    <td><b>Time Dilation:</b></br>( Space/Earth Time)</td>
+    <td><input type="text" SIZE="10" id="tm" value="" readonly data-theme="e"></td>
+  </tr>
+  <tr>
+    <th scope="row"><input type="button" onclick="calcIRE(ire.Rocket.value, ire.MO.value, ire.MF.value)" value="Calculate" data-theme="b" data-icon="check"></th>
+    <td><input type="reset" value="Reset" data-theme="b"  data-icon="refresh"></td>
+  </tr>
+</table>
+</form>
+</div>
+        <div data-role="footer" class="nav-icon-bar" data-id="persistent_navbar" data-position="fixed">
+            <div data-role="navbar" class="nav-icon-bar" data-grid="d">
+            <ul>
+                <!-- li><a href="Rocket.html" id="rocket" data-icon="custom">Rocket</a></li -->
+				<li><a href="Drake.html"          class="ui-btn" data-icon="drake" data-theme="b"><br/>Aliens</a></li>
+                <li><a href="CosmicDistance.html" class="ui-btn" data-icon="dist"  data-theme="b"><br/>Star</a></li>
+                <li><a href="StarTemp.html"       class="ui-btn" data-icon="temp"  data-theme="b"><br/>Temp</a></li>
+                <li><a href="graph.html"          class="ui-btn" data-icon="orbit" data-theme="b"><br/>Orbits</a></li>
+                <li><a href="Converter.html"      class="ui-btn" data-icon="conv"  data-theme="b"><br/>Conv</a></li>
+                <!-- li><a href="StarData.html"       id="data"  data-icon="custom">Data</a></li -->
+                <!-- li><a href="Principium 1 V2.pdf" id="news"  data-icon="custom">News</a></li -->
+            </ul>
+            </div>
+        </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questions>
+    <question>
+        <num>1</num>
+        <ques>Who was the first man on the moon?</ques>
+        <ans1>Superman</ans1>
+        <ans2>Spiderman</ans2>
+        <ans3>Armstrong</ans3>
+        <ans>3</ans>   
+        <elink>"http://www.dccomics.com/superman"</elink>  
+    </question>
+    <question>
+        <num>2</num>
+        <ques>Which planet is closest to the sun?</ques>
+        <ans1>Mars</ans1>
+        <ans2>Earth</ans2>
+        <ans3>Mercury</ans3>
+        <ans>3</ans> 
+         <elink></elink>            
+    </question>  
+    <question>
+        <num>3</num>
+        <ques>Which is furthest from the sun?</ques>
+        <ans1>Mercury</ans1>
+        <ans2>Jupiter</ans2>
+        <ans3>Venus</ans3>
+        <ans>2</ans>        
+        <elink></elink>    
+    </question>
+    <question>
+        <num>4</num>
+        <ques>Which is fastest?</ques>
+        <ans1>Speed of sound</ans1>
+        <ans2>Speed of light</ans2>
+        <ans3>A rocket</ans3>
+        <ans>2</ans>
+        <elink></elink>     
+    </question>
+	<question>
+        <num>5</num>
+        <ques>Which has the highest escape velocity?</ques>
+        <ans1>Jupiter</ans1>
+        <ans2>Earth</ans2>
+        <ans3>Moon</ans3>
+        <ans>1</ans>        
+        <elink></elink>  
+    </question>
+	<question>
+        <num>6</num>
+        <ques>Which has the lowest escape velocity?</ques>
+        <ans1>Jupiter</ans1>
+        <ans2>Earth</ans2>
+        <ans3>Moon</ans3>
+        <ans>3</ans>        
+        <elink></elink>  
+    </question>	
+    <question>
+        <num>7</num>
+        <ques>Which is further from the Sun?</ques>
+        <ans1>The Oort Cloud</ans1>
+        <ans2>The Kuiper belt</ans2>
+        <ans3>The asteroid belt</ans3>
+        <ans>1</ans>
+        <elink></elink>         
+    </question>
+    <question>
+        <num>8</num>
+        <ques>Is Pluto in?</ques>
+        <ans1>The Oort Cloud</ans1>
+        <ans2>The Kuiper belt</ans2>
+        <ans3>The asteroid belt</ans3>
+        <ans>2</ans>
+        <elink></elink>        
+    </question> 
+    <question>
+        <num>9</num>
+        <ques>Which has the strongest gravity?</ques>
+        <ans1>Moon</ans1>
+        <ans2>Earth</ans2>
+        <ans3>Pluto</ans3>
+        <ans>2</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>10</num>
+        <ques>Which has the strongest gravity?</ques>
+        <ans1>Moon</ans1>
+        <ans2>Earth</ans2>
+        <ans3>Pluto</ans3>
+        <ans>3</ans>        
+        <elink></elink>  
+    </question>	
+    <question>
+        <num>11</num>
+        <ques>Which is bigger?</ques>
+        <ans1>Earth</ans1>
+        <ans2>Moon</ans2>
+        <ans3>Jupiter</ans3>
+        <ans>3</ans>        
+        <elink></elink>  
+    </question>
+    <question>
+        <num>12</num>
+        <ques>Which is smaller?</ques>
+        <ans1>Earth</ans1>
+        <ans2>Moon</ans2>
+        <ans3>Jupiter</ans3>
+        <ans>2</ans>        
+        <elink></elink>  
+    </question>	
+   <question>
+        <num>13</num>
+        <ques>The first successful flyby of Mars was by?</ques>
+        <ans1>Mariner 2</ans1>
+        <ans2>Mariner 3</ans2>
+        <ans3>Mariner 4</ans3>
+        <ans>3</ans>        
+        <elink></elink>    
+    </question>
+    <question>
+        <num>14</num>
+        <ques>The first successful flyby of Venus was by?</ques>
+        <ans1>Mariner 2</ans1>
+        <ans2>Mariner 3</ans2>
+        <ans3>Mariner 4</ans3>
+        <ans>1</ans>  
+        <elink></elink>     
+    </question>
+   <question>
+        <num>15</num>
+        <ques>The first successful flyby of Mars was in?</ques>
+        <ans1>1965</ans1>
+        <ans2>1966</ans2>
+        <ans3>1967</ans3>
+        <ans>1</ans>        
+        <elink></elink>    
+    </question>
+    <question>
+        <num>16</num>
+        <ques>The first successful flyby of Venus was in?</ques>
+        <ans1>1960</ans1>
+        <ans2>1961</ans2>
+        <ans3>1962</ans3>
+        <ans>3</ans>  
+        <elink></elink>     
+    </question>	
+
+</questions>

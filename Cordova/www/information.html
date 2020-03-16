@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Information</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<link href="jqry/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css"/>
+<link href="jc/little.css" rel="stylesheet" type="text/css" media='screen and (max-width: 640px)' />
+<link href="jc/large.css" rel="stylesheet" type="text/css" media='screen and (min-width: 641px)' />
+<script src="jqry/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="cordova.js" type="text/javascript"></script>
+<script src="cordova_plugins.js" type="text/javascript"></script>
+<script src="jqry/jquery.flot.min.js"></script>
+<script src="jc/I4IScalcs.js" type="text/javascript"></script>
+<script src="jc/I4IScalcs2.js" type="text/javascript"></script>
+<script src="jqry/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<noscript>Your browser does not support JavaScript!</noscript>
+</head>
+
+<body>
+
+<div data-role="page" id="pageInformation">
+   	<div data-role="header" data-position="fixed" id="headerBackGrd" data-theme="b">
+        <div class="ui-grid-b" data-role="header" id="headerBackGrd" data-theme="b">
+           <div class="ui-block-a" align="left"><a href="index.html" data-role="button" data-icon="home" data-inline="true" data-mini="true" data-theme="b">Home</a></div>
+           <div class="ui-block-b" align="center"><h1 align="center" style="color:yellow">Info</h1></div>
+           <div class="ui-block-c" align="right"><input type="button" onclick="gotoHomePage()" value="Website" class="ui-btn" data-icon="I4IS" data-inline="true" data-mini="true"></div>
+		</div>		   
+    </div>
+
+
+<div data-role="content">
+ <h2 id="tp" name="tp">About the I4IS</h2>
+ <br/>
+The subject of interstellar studies derives its name from a set of special red cover issues of the Journal of the British Interplanetary Society, published between 1974 – 1991. These issues were edited by Gerald Grooves and Anthony Martin and they included papers on interstellar communications and the Search for Extraterrestrial Intelligence (SETI).
+ <p/>
+ <h2 id="tp" name="tp">About You</h2>
+ <br/>
+In 300 BC Eratosthenes calculated the  circumference of the earth.
+Nearly 2000 years later Johannes Kepler (1571 – 1630) mathematically described the orbits of the planets around the sun.
+Less than 100 years later Sir Isaac Newton (1642 – 1726) used the concept of gravity to explain the underlying principal holding the Earth and moon in orbit.
+In 1903 The Wright brothers flew the first plane covering a distance barely the length of a modern passenger plane. Today it is common to fly around the world.
+In 1924 Edwin Hubble (1889 – 1953) gave us the first glimpse of how big the universe really is. 37 years later Yuri Gagarin became the first man in space.
+40 years later, in 2001 the first space tourist slipped the surly bonds of Earth. The pace of exploration has accelerated at a rate that must inevitably lead to a near future where humankind shares its borders with the stars
+
+ <p>
+ <h2>Background information:</h2>
+ <br/>
+		<ul data-role="listview">
+          	<li><a href="#Rocket" target="_self">Propulsion (Rocket Calculation)</a></li>
+          	<li><a href="#SolSail" target="_self">Propulsion (Solar Sail Calculation)</a></li>
+	        <li><a href="#Drake" target="_self">Find Aliens (Drake Calculation)</a></li>
+            <li><a href="#Converter" target="_self">Distance conversion</a></li>
+            <li><a href="#CosmicDistance" target="_self">Calculate Distance to Star</a></li>
+            <li><a href="#StarTemp" target="_self">Calculate Temperature of Star</a></li>
+            <li><a href="#graph" target="_self">Calculate Orbits</a></li>
+            <li><a href="#StarData" target="_self">Star Reference Data</a></li>
+		</ul>
+ <br/>
+ <p/>
+
+<h3 id="Rocket" name="Rocket" >Rocket Calculation</h3>
+This equation divides the time travelled by the distance to the star to give an average velocity. In keeping with Sir Isaac Newton's (1642 – 1726) 3 laws of Motion, shown below. More recently Einstein (1879 - 1955) discovered that the closer to the speed of light a rocket travels, the slower time will pass. The time dilation figure shows how many years will pass on Earth for each one on a spaceship.
+<br/>
+ Rockets are propelled forward by the mass pushed out as an exhaust. This equation shows the different classes of rockets, including current and future technology.<br/>
+		<ul>
+          	<li>1. In the absence of any other force a body/Rocket will move at a constant velocity</li>
+           	<li>2. A body/Rocket will accelerate proportionally to the force applied and inversely proportional to it mass</li>
+          	<li>3. For each applied force there is an equal and opposite one. The push of the Rocket exhaust creates a push forward</li>
+		</ul>
+<!-- input type="button"    onClick="parent.location='http://www.bis-space.com/2013/01/02/8282/new-project-daedalus-model'" value="BIS: Daedalus" data-icon="info" data-inline="true" data-mini="true" -->
+<input type="button"  onClick="gotoDaedalus()" value="BIS: Daedalus" data-icon="info" data-inline="true" data-mini="true">
+<p><a href="#tp" target="_self" data-role="button" data-theme="b" data-icon="arrow-u">Top</a></p>
+
+
+<h3 id="SolSail" name="SolSail" >Solar Sail Calculation</h3>
+When humankind first sailed the seas, it was the sun that provided the energy to fill the sails with wind. Now that humankind has started to explore space, once again sails are being used to power mankind. This time the sails will be vast and directly capture the stream of energy radiated by the sun.
+<br/>
+<!-- input type="button" onClick="location.href='http://www.nasa.gov/mission_pages/tdm/solarsail/solarsail_overview_prt.htm'" value="NASA: Sunjammer" data-icon="info" data-inline="true" data-mini="true" -->
+<input type="button" onClick="gotoSunjammer()" value="NASA: Sunjammer" data-icon="info" data-inline="true" data-mini="true">
+<p><a href="#tp" target="_self" data-role="button" data-theme="b" data-icon="arrow-u">Top</a></p>
+
+
+<h3 id="Drake" name="Drake">Find Aliens (Drake Calc)</h3>
+Frank Drake at SETI produced an equation to calculate the number of alien civilisation in our galazy based on N = R* Fp * Ne * Fl * Fi * Fc * L where
+<ul>
+          	<li>Stars formed in Galaxy per year (R*)</li>
+          	<li>% Stars that will have planets (Fp)</li>
+          	<li>Planets capable of life per star (Ne)</li>
+          	<li>% Planets that will develop life (Fl)</li>
+          	<li>% Will develop intelligent life (Fi)</li>
+          	<li>% of above able to communicate (Fc)</li>
+          	<li>Average lifespan of a civilisation L</li>
+          	<li>Number of Civilisations in the Galaxy (N)</li>
+</ul>
+<p><a href="#tp" target="_self" data-role="button" data-theme="b" data-icon="arrow-u">Top</a></p>
+
+<h3 id="Converter" name="Converter">Distance conversion</h3>
+Distance conversion based on
+<ul>
+          	<li>Kilometer Per Mile : 1.609344</li>
+          	<li>Kilometer Per AU : 149597871</li>
+          	<li>Kilometer Per Parsec : 3.08567758 (10 power 13)</li>
+          	<li>Speed Of Light : 299792.458 Km Per Second</li>
+</ul>
+Where
+<ul>
+          	<li>Astronomical Unit - Mean distance from Earth to Sun</li>
+          	<li>Parsec - Distance to object with one arcsecond parallax between the Earth and Sun</li>
+          	<li>Light Year - Distance light travels in one year</li>
+</ul>
+<p><a href="#tp" target="_self" data-role="button" data-theme="b" data-icon="arrow-u">Top</a></p>
+
+<h3 id="CosmicDistance">Calc Distance to Star</h3>
+There are various methods of measuring the distance to sellar objects
+<ul>
+          	<li>Parallax : Using the orbit of the Earth to view stars from different angles. 1 arcsecond of movement for each parsec
+          	<li>Standard Candle : If the actual brightness of an object can be calculated, it's apparent brightness in the night sky can be used to estimate it's distance [Distance  = 10 to the power (( AppLum - AbsLum )/ 5) ]
+          	<li>Red Shift : Edwin Hubble (1889 – 1953) demonstarted that our universe is expanding, as predicted by General Relativity. The further away a star is the fast (on average) it will be receeding from Earth and so the redder ot's light. Allowing it's distance to be calculated based on the Huuble Constant: A speed of 69 km/s for every MegaParsec away from Earth.
+</ul>
+
+<p><a href="#tp" target="_self" data-role="button" data-theme="b" data-icon="arrow-u">Top</a></p>
+
+<h3 id="StarTemp">Calc Temperature of Star</h3>
+In 1862 Gustav Kirchhoff (1824 – 1887) coined the term "Black body radiation". Ludwig Boltzmann (1844 – 1906) and Joseph Stefan (1835 – 1893) then went on to describe the proportional relationship between Radiation
+and Temperature which allows Astrophysicists to estimate the temperature of distance stars as follows:<br/>
+Star surface area = 4 * pi * Square of Radius<br/>
+Star Luminosity =  Area * Temperature to the power of 4 * Boltzmann constant<br/>
+{This is an approximation based on black body radiation - The effective temperature of a star}
+
+
+<p><a href="#tp" target="_self" data-role="button" data-theme="b" data-icon="arrow-u">Top</a></p>
+
+<h3 id="graph">Calc Orbits</h3>
+Planets orbit around their stars according to the rules discovered by Johannes Kepler (1571 – 1630)
+<ol>
+          	<li>Planets orbit their stars in an ellipse with the star at one foci.</li>
+          	<li>Areas of equal size will be formed by triangles created by the arc of the planet in equal periods of time.</li>
+          	<li>The square of the time taken for an orbit (a year) is proportional to the cube of the distance from (perihelion) nearest point to (Aphelion) furthest point from the star.</li>
+</ol>
+<p><a href="#tp" target="_self" data-role="button" data-theme="b" data-icon="arrow-u">Top</a></p>
+
+<h3 id="StarData">Star Data</h3>
+Reference data
+<p><a href="#tp" target="_self" data-role="button" data-theme="b" data-icon="arrow-u">Top</a></p>
+
+
+<!-- div>
+<h3>Software Info for testing</h3>
+	<p id="jqProperties">jQuery version...</p>
+	<p id="plotProperties">Graph version...</p>
+    <p id="envProperties">Loading device properties...</p>
+	<p id="deviceProperties">Loading device properties...</p>
+	<p id="cameraProperties">Camera properties...</p>
+	<p id="vbProperties">Checking Browser properties...</p>
+	<p id="netProperties">Checking Network Status...</p>
+	<p id="fsProperties">Checking file system...</p>
+	<p id="flProperties">Checking I4ISevents.xml...</p>
+</div>
+    <script language="JavaScript" type="text/javascript">
+       setInfo();
+    </script -->
+
+<br/>Build and design by Jeremy Clark
+<br/>Astronomical data supplied by Keith Cooper
+<br/>Graphics by Alex Storer and Adrian Mann 
+
+        <div data-role="footer" class="nav-icon-bar" data-id="persistent_navbar" data-position="fixed">
+            <div data-role="navbar" class="nav-icon-bar" data-grid="d">
+            <ul>
+                <li><a href="Rocket.html"         class="ui-btn" data-icon="rocket" data-theme="b"><br/>Rocket</a></li>
+                <li><a href="SSail.html"          class="ui-btn" data-icon="sail" data-theme="b"><br/>Sail</a></li>
+				<li><a href="Drake.html"          class="ui-btn" data-icon="drake" data-theme="b"><br/>Aliens</a></li>
+                <li><a href="CosmicDistance.html" class="ui-btn" data-icon="dist"  data-theme="b"><br/>Star</a></li>
+                <li><a href="StarTemp.html"       class="ui-btn" data-icon="temp"  data-theme="b"><br/>Temp</a></li>
+                <li><a href="graph.html"          class="ui-btn" data-icon="orbit" data-theme="b"><br/>Orbits</a></li>
+                <li><a href="Blackhole.html"      class="ui-btn" data-icon="bhole" data-theme="b"><br/>B/Hole</a></li>
+                <li><a href="Converter.html"      class="ui-btn" data-icon="conv"  data-theme="b"><br/>Conv</a></li>
+                <li><a href="StarData.html"       class="ui-btn" data-icon="data"  data-theme="b"><br/>Data</a></li>
+				<li><a href="Events.html"         class="ui-btn" data-icon="Event" data-theme="b"><br/>Events</a></li>
+            </ul>
+            </div>
+        </div>
+
+</div>
+</div>
+
+</body>
+</html>

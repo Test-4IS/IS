@@ -1,0 +1,158 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>Orbit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta name="format-detection" content="telephone=no" />
+  <link href="jqry/css/ui.jqgrid.css" rel="stylesheet" type="text/css"  />
+  <link href="jqry/css/jquery-ui.min.css" rel="stylesheet" type="text/css"  />
+  <link href="jqry/jquery.mobile-1.4.3.min.css" rel="stylesheet" type="text/css"/>
+  <link href="jc/little.css" rel="stylesheet" type="text/css" media='screen and (max-width: 640px)' />
+  <link href="jc/large.css" rel="stylesheet" type="text/css" media='screen and (min-width: 641px)' />
+
+  <script src="jqry/jquery-2.1.1.min.js" type="text/javascript"></script>
+  <script src="jqry/jquery.jqGrid.min.js" language="JavaScript"  type="text/javascript"></script>
+  <script src="jqry/grid.locale-en.js" type="text/javascript"></script>
+<!-- script src="a/cordova-2.9.1.js" type="text/javascript"></script -->
+  <script src="i/cordova-2.9.1.js" type="text/javascript"></script>
+  <script src="jqry/jquery.flot.min.js"></script>
+  <script src="jc/I4IScalcs.js" type="text/javascript"></script>
+  <script src="jc/I4IScalcs2.js" type="text/javascript"></script>
+  <script src="jqry/jquery.mobile-1.4.3.min.js" type="text/javascript"></script>
+  <noscript>Your browser does not support JavaScript!</noscript>
+</head>
+
+
+<body> 
+
+<div data-role="page" id="pageOrbit">
+
+   	<div data-role="header" data-position="fixed" id="headerBackGrd" data-theme="a">
+        <div class="ui-grid-b" data-role="header" id="headerBackGrd" data-theme="a"> 
+           <div class="ui-block-a" align="left"><a href="index.html" data-role="button" data-icon="home" data-inline="true" data-mini="true" data-theme="a">Home</a></div>
+           <div class="ui-block-b" align="center"><h1 align="center" style="color:yellow">Orbit Calc</h1></div>
+           <div class="ui-block-c" align="right"><a href="information.html" data-role="button" data-icon="info" data-inline="true" data-mini="true" data-theme="a">Info</a></div>
+        </div>
+    </div>
+	
+	<!-- div data-role="header" data-position="fixed" data-theme="b">
+        <a href="index.html" data-icon="home">Home</a>
+		<h1>Orbit Calc</h1>
+        <a href="information.html"   data-icon="info"></a>
+	</div -->
+	
+ <div data-role="content" id="orbitBackGrd">	
+
+  <form name="graphParm" id="graphParm" onclick="crtGraph(graphParm.in1.value, graphParm.e1.value, graphParm.Star.value)">
+		<div class= "pageTitleWhite" align="center">Calculate Orbit <br/></div>
+		<div class= "equation" align="center">Vel = square root (G * Mass/Radius)</div>
+		
+  <div align="center" data-role="fieldcontain" onclick="crtGraph(graphParm.in1.value, graphParm.e1.value, graphParm.Star.value)" onmouseup="crtGraph(graphParm.in1.value, graphParm.e1.value, graphParm.Star.value)"> 
+
+  <p id="oProperties" style="color:white;" align="center">Touch centre to load graph...</p>	
+  <div data-role="fieldcontain">
+    <label for="in1" style="color:white;">Set radius of orbit in AU:</label>
+    <input type="range" name="in1" id="in1" value="1" min="0" max="30" id="graphParm" onchange="crtGraph(graphParm.in1.value, graphParm.e1.value, graphParm.Star.value)" />
+  </div>
+
+ <p/>
+ <div style="padding: 10px;" align="center">
+   &nbsp;&nbsp;&nbsp;<div id="flotcontainer"></div>
+ </div>
+ <br/>
+ 
+  <!-------div class="ui-grid-a">    
+	  <div class="ui-block-a" style="color:white;"><b>Velocity:</b><br/>( km/sec )</div>
+	  <div class="ui-block-b" style="color:white;"><b>Length of year:</b><br/>(Earth years)</div>
+	  <div class="ui-block-a"><input type="number" id="V" name ="V" readonly data-theme="e" ></div>
+	  <div class="ui-block-b"><input type="number" id="Y" name ="Y" readonly data-theme="e" ></div>
+  </div -------->
+
+ <div data-role="fieldcontain">
+    <label for="e1" style="color:white;">Set Eccentricity:</label>
+    <input type="range" name="e1" id="e1" value="0.02" min="0" max="1" step ="0.01" onchange="crtGraph(graphParm.in1.value, graphParm.e1.value, graphParm.Star.value)" />
+ </div>
+ <h5 align="center" style="color:white;">Select a celestial body to orbit</h5>  
+    <select name="Star" type="number" data-theme="b" onchange="setSlider(this.value);">
+      <option value="1" selected = "selected">Sun (2 e+30 Kg)</option>
+	  <option value=".000003">Earth (5.972e+24 Kg)</option>
+	  <option value=".1">OGLE-TR-122b (2 e+29 Kg)</option>	  
+	  <option value="265">R136a1 (53 e+31 Kg)</option> 
+    </select> 
+  </div>
+	
+
+
+</form>
+
+ <div>	
+ <table data-role="table" id="planet-table" data-mode="columntoggle" data-column-btn-text="Select Planet Data To View" data-column-btn-theme="a" border="1" class="planet-compare ui-shadow table-stroke" bgcolor=white>
+  <thead>								
+  <tr><th>	Planet	</th>
+  <th>	Avg Distance (AU)	</th>
+  <th data-priority="1">Diameter Km</th>		
+  <th data-priority="2">Mass Kg</th>		
+  <th data-priority="3">Volume Km3</th>		
+  <th data-priority="4">Surface Gravity ms-2</th>		
+  <th data-priority="5">Average Density gcm-3</th>		
+  <th data-priority="6">Average Distance from the Sun km</th>		
+  <th data-priority="6">Orbital Eccentricity</th>		
+  <th data-priority="6">Length of Year</th>		
+  <th data-priority="6">Length of Day</th>		
+  <th data-priority="6">Axial Tilt degrees</th>		
+  <th data-priority="6">Average Surface Temperature celsius</th>		
+  <th data-priority="6">Number of Moons</th>		
+  <th data-priority="6">Perihelion</th>		
+  <th data-priority="6">Aphelion</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>	Mercury	</td><td>	0.39	</td><td>4,879</td><td>	3.3 e+23</td><td>	6.08 e+10</td><td>	3.7</td><td>	5.427</td><td>	57,900,000</td><td>	0.21	</td><td>	88 Earth days	</td><td>	58.7 Earth days	</td><td>0.02</td><td>	169</td><td>	0			</td><td>	46,001,200km (0.308 AU)		</td><td>		68,816,900km (0.467AU)		</td></tr>
+  <tr><td>	Venus	</td><td>	0.72	</td><td>12,104</td><td>	4.869 e+24</td><td>	9.38 e+11</td><td>	8.87</td><td>	5.204</td><td>	108,200,000</td><td>	0.007	</td><td>	224.7 Earth days	</td><td>	243 Earth days	</td><td>	177.3</td><td>	460</td><td>	0		</td><td>	107,477,000km (0.718AU)		</td><td>		108,208,000km (0.728AU)		</td></tr>
+  <tr><td>	Earth	</td><td>	1	</td><td>12,742</td><td>	5.97 e+24</td><td>	1.08 e+12</td><td>	9.78</td><td>	5.515</td><td>	149,598,261</td><td>	0.02	</td><td>	365.25	</td><td>	24 hours	</td><td>	23.5</td><td>	14</td><td>	1		</td><td>	147,098,290km (0.983AU)		</td><td>		152,098,232km (1.017AU)		</td></tr>
+  <tr><td>	Mars	</td><td>	1.52	</td><td>6,780</td><td>	6.4 e+23</td><td>	1.6 e+11</td><td>	3.71</td><td>	3.933</td><td>	228,000,000</td><td>	0.0935	</td><td>	1.88 Earth years	</td><td>	24 hours 39 minutes	</td><td>	25.19</td><td>-63</td><td>	2			</td><td>	206,669,000km (1.381AU)		</td><td>		249,209,300km (1.666AU)		</td></tr>
+  <tr><td>	Jupiter	</td><td>	5.2	</td><td>142,984</td><td>	1.9 e+27</td><td>	1.431 e+15</td><td>	24.79</td><td>	1.326</td><td>	778,000,000</td><td>	0.048	</td><td>	11.86 Earth years	</td><td>	9 hours, 55 minutes	</td><td>	3.13</td><td>-108</td><td>	64			</td><td>	740,573,600km (4.950AU)		</td><td>		816,520,800km (5.458AU)		</td></tr>
+  <tr><td>	Saturn	</td><td>	9	</td><td>120,536</td><td>	5.68 e+26</td><td>	8.27 e+14</td><td>	10.44</td><td>	0.687</td><td>	1,433,449,370</td><td>	0.056	</td><td>	29.4 Earth years	</td><td>	10 hours, 34 minutes	</td><td>	26.73</td><td>-139</td><td>	62			</td><td>	1,353,572,956km (9.048AU)		</td><td>		1,513,325,783km (10.116AU)		</td></tr>
+  <tr><td>	Uranus	</td><td>	19.2	</td><td>51,118</td><td>	8.6978 e+25</td><td>	6.8  e+13</td><td>	8.69</td><td>	1.27</td><td>	2,870,000,000</td><td>	0.047	</td><td>	84 Earth years	</td><td>	17 hours, 14 minutes	</td><td>	97.86</td><td>-214</td><td>	27			</td><td>	2,748,938,461km (18.376AU)		</td><td>		3,004,419,704km (20.083AU)		</td></tr>
+  <tr><td>	Neptune	</td><td>	30	</td><td>50,538</td><td>	1.03 e+26</td><td>	6.23 e+13</td><td>	11.15</td><td>	1.638</td><td>	4,503,443,661</td><td>	0.01	</td><td>	164.8 Earth years	</td><td>	16 hours, 6 minutes	</td><td>	28.32</td><td>-201</td><td>	13			</td><td>	4,452,940,833km (29.766AU)		</td><td>		4,553,946,490km (30.441AU)		</td></tr>
+  <tr><td>	Pluto	</td><td>	39.5	</td><td>2,300</td><td>	1.3056 e+22</td><td>	6.39 e+9</td><td>	0.58</td><td>	2.03</td><td>	5,906,376,272</td><td>	0.25	</td><td>	248 Earth years	</td><td>	6 days, 9 hours, 17 minutes	</td><td>	119.6</td><td>-220</td><td>	5			</td><td>	4,437,000,000km (29.657AU)		</td><td>		7,311,000,000km (48.871AU)		</td></tr>
+  <tr><td>	Eris	</td><td>	68.01	</td><td>2,326</td><td>	1.67 e+22</td><td>		</td><td>	0.827</td><td>	2.52</td><td>	10,120,000,000</td><td>	0.441	</td><td>	557 Earth years	</td><td>	8 hours	</td><td>		</td><td>-238</td><td>	1	</td><td>	5,650,000,000km (38.375AU)		</td><td>		14,600,000,000km (97.65AU)		</td></tr>
+  <tr><td>	Haumea	</td><td>	43.13	</td><td>1,960</td><td>	4.2 e+21</td><td>		</td><td>	0.44</td><td>	2.6-3.3</td><td>	6,452,000,000</td><td>	0.195	</td><td>	283 Earth years	</td><td>	4 hours	</td><td>		</td><td>-223</td><td>	2	</td><td>	5,194,000,000km (34.72AU)		</td><td>		7,710,000,000km (51.544AU)		</td></tr>
+  <tr><td>	Makemake	</td><td>	45.79	</td><td>1,500</td><td>	3 e+21</td><td>	1.7 e+9</td><td>	0.5</td><td>	3</td><td>	6,850,000,000</td><td>	0.159	</td><td>	310 Earth years	</td><td>	7 hours 48 minutes	</td><td>		</td><td>-238</td><td>	0		</td><td>	5,760,000,000km (38.509AU)		</td><td>		7,939,000,000km (53.074AU)		</td></tr>
+  </tbody>
+ </table>
+ </div>		
+	
+ </div>	 
+     <div data-role="footer" class="nav-icon-bar" data-id="persistent_navbar" data-position="fixed" data-theme="b"> 
+     
+          <div class="results-bar">
+              <div class="ui-grid-c">    
+	            <div class="ui-block-a" ><b>Velocity:</b><br/>( km/sec )</div>
+	            <div class="ui-block-b" ><canvas id="velCanvas"  /></div>
+	            <div class="ui-block-c" style="color:white;"><b>Year:</b><br/>(* Earth)</div>
+	            <div class="ui-block-d"><canvas id="yearCanvas" width:50px;height:20px /></div>
+             </div>
+         </div>          
+
+     
+        <div data-role="navbar" class="nav-icon-bar" data-grid="d"> 
+          <ul> 
+			    <li><a href="Rocket.html"         class="ui-btn" data-icon="rocket" data-theme="b"><br/>Rocket</a></li> 
+                <!-- li><a href="SSail.html"          class="ui-btn" data-icon="sail" data-theme="b"><br/>Sail</a></li -->                 
+				<li><a href="Drake.html"          class="ui-btn" data-icon="drake" data-theme="b"><br/>Aliens</a></li>
+                <li><a href="CosmicDistance.html" class="ui-btn" data-icon="dist"  data-theme="b"><br/>Star</a></li> 
+                <li><a href="StarTemp.html"       class="ui-btn" data-icon="temp"  data-theme="b"><br/>Temp</a></li> 
+                <!-- li><a href="graph.html"          class="ui-btn" data-icon="orbit" data-theme="b"><br/>Orbits</a></li -->  				
+                <!-- li><a href="Blackhole.html"      class="ui-btn" data-icon="bhole" data-theme="b"><br/>B/Hole</a></li -->    
+                <li><a href="Converter.html"      class="ui-btn" data-icon="conv"  data-theme="b"><br/>Conv</a></li> 
+                <!-- li><a href="StarData.html"       class="ui-btn" data-icon="data"  data-theme="b"><br/>Data</a></li --> 
+                <!-- li><a href="javascript://" onclick="gotoNewsLetter();" target="_blank" class="ui-btn" data-icon="news"  data-theme="b" data-ajax="false"><br/>News</a></li--> 
+          </ul> 
+         </div> 
+       </div> 
+</div>
+
+</body>
+</html>
